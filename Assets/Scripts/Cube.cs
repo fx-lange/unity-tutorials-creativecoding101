@@ -6,6 +6,7 @@ public class Cube : MonoBehaviour {
 
     public Vector3 spinSpeed;
     public Vector3 spinAxis;
+    public float rotationSpeed = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +27,6 @@ public class Cube : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         this.transform.Rotate(spinSpeed);
-        this.transform.RotateAround( Vector3.zero, spinAxis, 1.0f);
+        this.transform.RotateAround( Vector3.zero, spinAxis, rotationSpeed);
 	}
 }
