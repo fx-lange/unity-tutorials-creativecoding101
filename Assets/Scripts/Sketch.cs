@@ -8,21 +8,23 @@ public class Sketch : MonoBehaviour {
 
     void Start () {
 
-        int totalCubes = 8;
-        int totalDistance = 5;
+        int totalCubes = 12;
+        float totalDistance = 2.8f;
 
         for( int i = 0; i < totalCubes; ++i)
         {
             float percentage = (float)i / (float)totalCubes;
 
-            float x = percentage * totalDistance;
+            float sin = Mathf.Sin(percentage * Mathf.PI/2.0f);
+
+            float x = 1.8f + sin * totalDistance;
             float y = 5;
             float z = 0;
 
             var newCube = (GameObject)Instantiate(myPrefab, new Vector3(x, y, z), Quaternion.identity);
             Cube cubeScript = newCube.GetComponent<Cube>();
-            cubeScript.SetSize((1-percentage));
-            cubeScript.rotationSpeed = percentage; //Random.value;
+            cubeScript.SetSize(.5f * (1-percentage));
+            cubeScript.rotationSpeed = .2f + percentage * 3.0f; //Random.value;
         }
 
         
